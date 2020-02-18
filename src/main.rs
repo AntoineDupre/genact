@@ -20,9 +20,9 @@ extern crate humantime;
 #[macro_use]
 extern crate lazy_static;
 extern crate pbr;
-extern crate url;
 extern crate rand;
 extern crate regex;
+extern crate url;
 extern crate yansi;
 #[macro_use]
 extern crate fake;
@@ -39,14 +39,15 @@ mod kernel_compile;
 mod memdump;
 mod mkinitcpio;
 mod simcity;
+mod spock;
 mod weblog;
 
-mod utils;
 mod parse_args;
+mod utils;
 
+use crate::parse_args::parse_args;
 use rand::prelude::*;
 use yansi::Paint;
-use crate::parse_args::parse_args;
 
 static BOOTLOG: &str = include_str!("../data/bootlog.txt");
 static CFILES: &str = include_str!("../data/cfiles.txt");
@@ -57,11 +58,17 @@ static BOOT_HOOKS: &str = include_str!("../data/boot_hooks.txt");
 static OS_RELEASES: &str = include_str!("../data/os_releases.txt");
 static DOCKER_PACKAGES: &str = include_str!("../data/docker_packages.txt");
 static DOCKER_TAGS: &str = include_str!("../data/docker_tags.txt");
+static MOTOR_NAMES: &str = include_str!("../data/motors.txt");
+static TIMER_NAMES: &str = include_str!("../data/timer.txt");
+static EX_NAMES: &str = include_str!("../data/expchanel.txt");
 
 lazy_static! {
     static ref BOOTLOG_LIST: Vec<&'static str> = BOOTLOG.lines().collect();
     static ref CFILES_LIST: Vec<&'static str> = CFILES.lines().collect();
     static ref PACKAGES_LIST: Vec<&'static str> = PACKAGES.lines().collect();
+    static ref MOTOR_LIST: Vec<&'static str> = MOTOR_NAMES.lines().collect();
+    static ref TIMER_LIST: Vec<&'static str> = TIMER_NAMES.lines().collect();
+    static ref EX_LIST: Vec<&'static str> = EX_NAMES.lines().collect();
     static ref COMPOSERS_LIST: Vec<&'static str> = COMPOSERS.lines().collect();
     static ref SIMCITY_LIST: Vec<&'static str> = SIMCITY.lines().collect();
     static ref BOOT_HOOKS_LIST: Vec<&'static str> = BOOT_HOOKS.lines().collect();
@@ -70,12 +77,13 @@ lazy_static! {
     static ref DOCKER_TAGS_LIST: Vec<&'static str> = DOCKER_TAGS.lines().collect();
 }
 
-static EXTENSIONS_LIST: &'static [&str] = &["gif", "webm", "mp4", "html", "php", "md",
-                                            "png", "jpg", "ogg", "mp3", "flac", "iso",
-                                            "zip", "rar", "tar.gz", "tar.bz2", "tar.xz",
-                                            "deb", "rpm", "exe"];
+static EXTENSIONS_LIST: &'static [&str] = &[
+    "gif", "webm", "mp4", "html", "php", "md", "png", "jpg", "ogg", "mp3", "flac", "iso", "zip",
+    "rar", "tar.gz", "tar.bz2", "tar.xz", "deb", "rpm", "exe",
+];
 
-static COMPRESSION_ALGORITHMS_LIST: &'static [&str] = &["gzip", "bzip2", "lzma", "xz", "lzop", "lz4"];
+static COMPRESSION_ALGORITHMS_LIST: &'static [&str] =
+    &["gzip", "bzip2", "lzma", "xz", "lzop", "lz4"];
 
 #[cfg(not(target_os = "emscripten"))]
 use std::sync::atomic::AtomicBool;
@@ -102,6 +110,7 @@ fn main() {
         "mkinitcpio",
         "kernel_compile",
         "weblog",
+        "spock",
         // "bruteforce",
         // "initialize",
         // "heartbeat",
@@ -128,7 +137,8 @@ fn main() {
         use std::sync::atomic::Ordering;
         ctrlc::set_handler(move || {
             CTRLC_PRESSED.store(true, Ordering::SeqCst);
-        }).expect("Error setting Ctrl-C handler");
+        })
+        .expect("Error setting Ctrl-C handler");
     }
 
     let mut rng = thread_rng();
@@ -148,6 +158,7 @@ fn main() {
             "composer" => composer::run(&appconfig),
             "kernel_compile" => kernel_compile::run(&appconfig),
             "weblog" => weblog::run(&appconfig),
+            "spock" => spock::run(&appconfig),
             _ => panic!("Unknown module!"),
         }
         #[cfg(not(target_os = "emscripten"))]
