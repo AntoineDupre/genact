@@ -61,6 +61,7 @@ static DOCKER_TAGS: &str = include_str!("../data/docker_tags.txt");
 static MOTOR_NAMES: &str = include_str!("../data/motors.txt");
 static TIMER_NAMES: &str = include_str!("../data/timer.txt");
 static EX_NAMES: &str = include_str!("../data/expchanel.txt");
+static EXCEPTIONS: &str = include_str!("../data/exceptions.txt");
 
 lazy_static! {
     static ref BOOTLOG_LIST: Vec<&'static str> = BOOTLOG.lines().collect();
@@ -69,6 +70,7 @@ lazy_static! {
     static ref MOTOR_LIST: Vec<&'static str> = MOTOR_NAMES.lines().collect();
     static ref TIMER_LIST: Vec<&'static str> = TIMER_NAMES.lines().collect();
     static ref EX_LIST: Vec<&'static str> = EX_NAMES.lines().collect();
+    static ref EXCEPTIONS_LIST: Vec<&'static str> = EXCEPTIONS.lines().collect();
     static ref COMPOSERS_LIST: Vec<&'static str> = COMPOSERS.lines().collect();
     static ref SIMCITY_LIST: Vec<&'static str> = SIMCITY.lines().collect();
     static ref BOOT_HOOKS_LIST: Vec<&'static str> = BOOT_HOOKS.lines().collect();

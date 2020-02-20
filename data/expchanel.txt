@@ -14,3 +14,13 @@ em04_ch01
 em04_ch02
 em04_ch03
 em04_ch04
+beamcurrent_green
+beamlifetime_green
+ni6602_ch01
+ni6602_ch01_b
+ni6602_ch02
+ni6602_ch02_b
+ni6602_ch03
+ni6602_ch03_b
+ni6602_ch04
+ni6602_ch04_b
