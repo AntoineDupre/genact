@@ -1,0 +1,96 @@
+Gathering Facts
+tango/common : ensure OpenJDK is present (needed for both client and server)
+tango/common : ensure Tango8 is removed
+tango/common : ensure Tango9 is present
+tango/common : ensure the tango-common package is present
+tango/common : ensure the python Tango packages are present
+tango/common : ensure the python 3 Tango packages are present for CentOS 7
+tango/common : ensure Tango Host is correctly configured
+db/mysql : Hostname as the target
+db/mysql : FQDN hostname as the target
+db/mysql : set distro-specific variables
+db/mysql : Create a database lvm group
+db/mysql : Create a database lvm logical volume
+db/mysql : The Mysql logical volume is using An XFS filesystem
+db/mysql : The logical volume is mounted to /var/lib/mysql
+db/mysql : Install MySQL
+db/mysql : Ensure enough resources for the mysql database
+db/mysql : Ensure enough resources for the mysql database
+db/mysql : file
+db/mysql : Change the limit of openfile in systemd (CENTOS7+)
+db/mysql : Ensure the server has the correct configuration /etc/my.cnf
+db/mysql : Start the MySQL service
+db/mysql : delete anonymous MySQL users
+db/mysql : remove the MySQL test database
+db/mysql : Mysql | Check if the root password has been already set
+db/mysql : Mysql | Generate a new root password
+db/mysql : update mysql root password for all root accounts
+db/mysql : copy .my.cnf file with root password credentials
+tango/db : set distro-specific variables
+tango/db : ensure the Tango Database packages are present
+tango/db : ensure that mysqld is running
+tango/db : ensure tango db exists
+tango/db : ensure that db user is configured in mysql
+tango/db : ensure the Tango Database to start with the good mysql credential
+tango/db : ensure that tangodb is running and will start after boot
+Gathering Facts
+tango/common : ensure OpenJDK is present (needed for both client and server)
+tango/common : ensure Tango8 is removed
+tango/common : ensure Tango9 is present
+tango/common : ensure the tango-common package is present
+tango/common : ensure the python Tango packages are present
+tango/common : ensure the python 3 Tango packages are present for CentOS 7
+tango/common : ensure Tango Host is correctly configured
+tango/server : ensure the tango-starter is updated and running
+tango/server : ensure the Tango Test Device Server package is present
+tango/server : Ensure enough resources for the tango device server to open connection with the client
+tango/server : ensure Tango User is correctly configured
+tango/server : ensure the tango starter service is running
+Gathering Facts
+camera/lima : ensure the Lima packages are present
+camera/lima : include
+camera/lima : set up network interface eth1
+Gathering Facts
+tango/common : ensure OpenJDK is present (needed for both client and server)
+tango/common : ensure Tango8 is removed
+tango/common : ensure Tango9 is present
+tango/common : ensure the tango-common package is present
+tango/common : ensure the python Tango packages are present
+tango/common : ensure the python 3 Tango packages are present for CentOS 7
+tango/common : ensure Tango Host is correctly configured
+tango/client : ensure the Tango packages are present
+tango/client : make sure the Tango archiving and snapshot packages are installed and up to date
+tango/client : Ensure the operator account has automatically the X11 forwarding enable
+tango/client : Ensure the remmina package is present
+Gathering Facts
+db/mysql : Hostname as the target
+db/mysql : FQDN hostname as the target
+db/mysql : set distro-specific variables
+db/mysql : Create a database lvm group
+db/mysql : Create a database lvm logical volume
+db/mysql : The Mysql logical volume is using An XFS filesystem
+db/mysql : The logical volume is mounted to /var/lib/mysql
+db/mysql : Install MySQL
+db/mysql : Ensure enough resources for the mysql database
+db/mysql : Ensure enough resources for the mysql database
+db/mysql : file
+db/mysql : Change the limit of openfile in systemd (CENTOS7+)
+db/mysql : Ensure the server has the correct configuration /etc/my.cnf
+db/mysql : Start the MySQL service
+db/mysql : delete anonymous MySQL users
+db/mysql : remove the MySQL test database
+db/mysql : Mysql | Check if the root password has been already set
+db/mysql : Mysql | Generate a new root password
+db/mysql : update mysql root password for all root accounts
+db/mysql : copy .my.cnf file with root password credentials
+icepap/db : ensure that the latest IcePAPCMS package is installed
+icepap/db : ensure icepapcms db exists
+icepap/db : ensure that db user icepapcms is configured
+icepap/db : update conflict tables to fix MaxIV name issues.
+Gathering Facts
+icepap/client : ensure that the latest IcePAPCMS package is installed
+icepap/client : ensure that the python-storm-mysql package is installed
+icepap/client : ensure that the config file path exists
+icepap/client : copy the standard icepapcms.conf to /etc/icepapcms
+Gathering Facts
+web/elog : Ensure the dependencies of the Elog are install
