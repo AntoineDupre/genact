@@ -27,6 +27,7 @@ extern crate yansi;
 #[macro_use]
 extern crate fake;
 
+mod ansible;
 mod bootlog;
 mod botnet;
 mod cargo;
@@ -62,6 +63,8 @@ static MOTOR_NAMES: &str = include_str!("../data/motors.txt");
 static TIMER_NAMES: &str = include_str!("../data/timer.txt");
 static EX_NAMES: &str = include_str!("../data/expchanel.txt");
 static EXCEPTIONS: &str = include_str!("../data/exceptions.txt");
+static HOSTS: &str = include_str!("../data/hosts.txt");
+static ANSIBLETASKS: &str = include_str!("../data/ansibletasks.txt");
 
 lazy_static! {
     static ref BOOTLOG_LIST: Vec<&'static str> = BOOTLOG.lines().collect();
@@ -77,6 +80,8 @@ lazy_static! {
     static ref OS_RELEASES_LIST: Vec<&'static str> = OS_RELEASES.lines().collect();
     static ref DOCKER_PACKAGES_LIST: Vec<&'static str> = DOCKER_PACKAGES.lines().collect();
     static ref DOCKER_TAGS_LIST: Vec<&'static str> = DOCKER_TAGS.lines().collect();
+    static ref HOSTS_LIST: Vec<&'static str> = HOSTS.lines().collect();
+    static ref ANSIBLETASKS_LIST: Vec<&'static str> = ANSIBLETASKS.lines().collect();
 }
 
 static EXTENSIONS_LIST: &'static [&str] = &[
@@ -113,6 +118,7 @@ fn main() {
         "kernel_compile",
         "weblog",
         "spock",
+        "ansible",
         // "bruteforce",
         // "initialize",
         // "heartbeat",
@@ -161,6 +167,7 @@ fn main() {
             "kernel_compile" => kernel_compile::run(&appconfig),
             "weblog" => weblog::run(&appconfig),
             "spock" => spock::run(&appconfig),
+            "ansible" => ansible::run(&appconfig),
             _ => panic!("Unknown module!"),
         }
         #[cfg(not(target_os = "emscripten"))]
