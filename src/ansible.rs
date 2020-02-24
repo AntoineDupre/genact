@@ -1,6 +1,6 @@
 use crate::parse_args::AppConfig;
 use crate::utils::csleep;
-use crate::{HOSTS_LIST, ANSIBLETASKS_LIST};
+use crate::{HOSTS_LIST, ANSIBLETASKS_LIST, ANSIBLEPLAYS_LIST};
 use rand::prelude::*;
 use rand::seq::SliceRandom;
 use regex::Regex;
@@ -31,24 +31,52 @@ fn task(task: &str) {
 fn recap(nbrtasks: usize) {
     let mut rng = thread_rng();
     println!("\nPLAY RECAP *********************************************************************************");
-    //b320b-a101930-cab05-ctl-ioc-01 : ok=0    changed=0    unreachable=1    failed=0   
-    //g-controlroom-cc-0         : ok=17   changed=6    unreachable=0    failed=0  
-    for h in HOSTS_LIST.clone().into_iter() {
-        //let failed = rng.
-        print!("{}", Paint::green(format!("{:<25}: ", h)));
-        print!("{}", Paint::green(format!("ok={:<5}", nbrtasks)));
-        print!("{}", Paint::white(format!("changed={:<5}", 3)));
-        print!("{}", Paint::white(format!("unreachable={:<5}", 0)));
-        println!("{}", Paint::white(format!("failed={:<5}", 0)));
+    let nbrhosts = rng.gen_range(1, 21);
+    let hosts: Vec<_> = HOSTS_LIST.choose_multiple(&mut rng, nbrhosts).collect();
+    for h in hosts.into_iter() {
+        let failed = rng.gen_range(0, nbrtasks/8);
+        let changed = rng.gen_range(0, (nbrtasks-failed)/4);
+        let unreachable = rng.gen_range(0, (nbrtasks-failed-changed)/8);
+        let ok = nbrtasks - failed - changed - unreachable;
+        if (failed > 0) | (unreachable > 0) {
+            print!("{}", Paint::red(format!("{:<25}: ", h)));
+        }
+        else {
+            print!("{}", Paint::green(format!("{:<25}: ", h)));
+        }
+        print!("{}", Paint::green(format!("ok={:<5}", ok)));
+        if changed > 0 {
+            print!("{}", Paint::yellow(format!("changed={:<5}", changed)));
+        }
+        else {
+            print!("{}", Paint::white(format!("changed={:<5}", 0)));
+        }
+        if unreachable > 0 {
+            print!("{}", Paint::red(format!("unreachable={:<5}", unreachable)));
+        }
+        else {
+            print!("{}", Paint::white(format!("unreachable={:<5}", 0)));
+        }
+        if failed > 0 {
+            println!("{}", Paint::red(format!("failed={:<5}", failed)));
+        }
+        else {
+            println!("{}", Paint::white(format!("failed={:<5}", 0)));
+        }
     }
 }
 
 pub fn run(appconfig: &AppConfig) {
     let mut rng = thread_rng();
 
-    for t in ANSIBLETASKS_LIST.clone().into_iter() {
+    let nbr_tasks = rng.gen_range(5, 23);
+    //for t in ANSIBLETASKS_LIST.clone().into_iter() {
+    for _ in 0..nbr_tasks {
+        let play = ANSIBLEPLAYS_LIST.choose(&mut rng).unwrap().to_string();
+        let desc = ANSIBLETASKS_LIST.choose(&mut rng).unwrap().to_string();
+        let tk = format!("{} : {}", play, desc);
         println!("");
-        let tk = t.to_string();
+        //let tk = t.to_string();
         task(&tk);
         if tk == "Gathering Facts" {
             csleep(rng.gen_range(500, 3000));

@@ -1,96 +1,575 @@
 Gathering Facts
-tango/common : ensure OpenJDK is present (needed for both client and server)
-tango/common : ensure Tango8 is removed
-tango/common : ensure Tango9 is present
-tango/common : ensure the tango-common package is present
-tango/common : ensure the python Tango packages are present
-tango/common : ensure the python 3 Tango packages are present for CentOS 7
-tango/common : ensure Tango Host is correctly configured
-db/mysql : Hostname as the target
-db/mysql : FQDN hostname as the target
-db/mysql : set distro-specific variables
-db/mysql : Create a database lvm group
-db/mysql : Create a database lvm logical volume
-db/mysql : The Mysql logical volume is using An XFS filesystem
-db/mysql : The logical volume is mounted to /var/lib/mysql
-db/mysql : Install MySQL
-db/mysql : Ensure enough resources for the mysql database
-db/mysql : Ensure enough resources for the mysql database
-db/mysql : file
-db/mysql : Change the limit of openfile in systemd (CENTOS7+)
-db/mysql : Ensure the server has the correct configuration /etc/my.cnf
-db/mysql : Start the MySQL service
-db/mysql : delete anonymous MySQL users
-db/mysql : remove the MySQL test database
-db/mysql : Mysql | Check if the root password has been already set
-db/mysql : Mysql | Generate a new root password
-db/mysql : update mysql root password for all root accounts
-db/mysql : copy .my.cnf file with root password credentials
-tango/db : set distro-specific variables
-tango/db : ensure the Tango Database packages are present
-tango/db : ensure that mysqld is running
-tango/db : ensure tango db exists
-tango/db : ensure that db user is configured in mysql
-tango/db : ensure the Tango Database to start with the good mysql credential
-tango/db : ensure that tangodb is running and will start after boot
+ensure OpenJDK is present (needed for both client and server)
+ensure Tango8 is removed
+ensure Tango9 is present
+ensure the tango-common package is present
+ensure the python Tango packages are present
+ensure the python 3 Tango packages are present for CentOS 7
+ensure Tango Host is correctly configured
+Hostname as the target
+FQDN hostname as the target
+set distro-specific variables
+Create a database lvm group
+Create a database lvm logical volume
+The Mysql logical volume is using An XFS filesystem
+The logical volume is mounted to /var/lib/mysql
+Install MySQL
+Ensure enough resources for the mysql database
+Ensure enough resources for the mysql database
+file
+Change the limit of openfile in systemd (CENTOS7+)
+Ensure the server has the correct configuration /etc/my.cnf
+Start the MySQL service
+delete anonymous MySQL users
+remove the MySQL test database
+Mysql | Check if the root password has been already set
+Mysql | Generate a new root password
+update mysql root password for all root accounts
+copy .my.cnf file with root password credentials
+set distro-specific variables
+ensure the Tango Database packages are present
+ensure that mysqld is running
+ensure tango db exists
+ensure that db user is configured in mysql
+ensure the Tango Database to start with the good mysql credential
+ensure that tangodb is running and will start after boot
 Gathering Facts
-tango/common : ensure OpenJDK is present (needed for both client and server)
-tango/common : ensure Tango8 is removed
-tango/common : ensure Tango9 is present
-tango/common : ensure the tango-common package is present
-tango/common : ensure the python Tango packages are present
-tango/common : ensure the python 3 Tango packages are present for CentOS 7
-tango/common : ensure Tango Host is correctly configured
-tango/server : ensure the tango-starter is updated and running
-tango/server : ensure the Tango Test Device Server package is present
-tango/server : Ensure enough resources for the tango device server to open connection with the client
-tango/server : ensure Tango User is correctly configured
-tango/server : ensure the tango starter service is running
+ensure OpenJDK is present (needed for both client and server)
+ensure Tango8 is removed
+ensure Tango9 is present
+ensure the tango-common package is present
+ensure the python Tango packages are present
+ensure the python 3 Tango packages are present for CentOS 7
+ensure Tango Host is correctly configured
+ensure the tango-starter is updated and running
+ensure the Tango Test Device Server package is present
+Ensure enough resources for the tango device server to open connection with the client
+ensure Tango User is correctly configured
+ensure the tango starter service is running
 Gathering Facts
-camera/lima : ensure the Lima packages are present
-camera/lima : include
-camera/lima : set up network interface eth1
+ensure the Lima packages are present
+include
+set up network interface eth1
 Gathering Facts
-tango/common : ensure OpenJDK is present (needed for both client and server)
-tango/common : ensure Tango8 is removed
-tango/common : ensure Tango9 is present
-tango/common : ensure the tango-common package is present
-tango/common : ensure the python Tango packages are present
-tango/common : ensure the python 3 Tango packages are present for CentOS 7
-tango/common : ensure Tango Host is correctly configured
-tango/client : ensure the Tango packages are present
-tango/client : make sure the Tango archiving and snapshot packages are installed and up to date
-tango/client : Ensure the operator account has automatically the X11 forwarding enable
-tango/client : Ensure the remmina package is present
+ensure OpenJDK is present (needed for both client and server)
+ensure Tango8 is removed
+ensure Tango9 is present
+ensure the tango-common package is present
+ensure the python Tango packages are present
+ensure the python 3 Tango packages are present for CentOS 7
+ensure Tango Host is correctly configured
+ensure the Tango packages are present
+make sure the Tango archiving and snapshot packages are installed and up to date
+Ensure the operator account has automatically the X11 forwarding enable
+Ensure the remmina package is present
 Gathering Facts
-db/mysql : Hostname as the target
-db/mysql : FQDN hostname as the target
-db/mysql : set distro-specific variables
-db/mysql : Create a database lvm group
-db/mysql : Create a database lvm logical volume
-db/mysql : The Mysql logical volume is using An XFS filesystem
-db/mysql : The logical volume is mounted to /var/lib/mysql
-db/mysql : Install MySQL
-db/mysql : Ensure enough resources for the mysql database
-db/mysql : Ensure enough resources for the mysql database
-db/mysql : file
-db/mysql : Change the limit of openfile in systemd (CENTOS7+)
-db/mysql : Ensure the server has the correct configuration /etc/my.cnf
-db/mysql : Start the MySQL service
-db/mysql : delete anonymous MySQL users
-db/mysql : remove the MySQL test database
-db/mysql : Mysql | Check if the root password has been already set
-db/mysql : Mysql | Generate a new root password
-db/mysql : update mysql root password for all root accounts
-db/mysql : copy .my.cnf file with root password credentials
-icepap/db : ensure that the latest IcePAPCMS package is installed
-icepap/db : ensure icepapcms db exists
-icepap/db : ensure that db user icepapcms is configured
-icepap/db : update conflict tables to fix MaxIV name issues.
+Hostname as the target
+FQDN hostname as the target
+set distro-specific variables
+Create a database lvm group
+Create a database lvm logical volume
+The Mysql logical volume is using An XFS filesystem
+The logical volume is mounted to /var/lib/mysql
+Install MySQL
+Ensure enough resources for the mysql database
+Ensure enough resources for the mysql database
+file
+Change the limit of openfile in systemd (CENTOS7+)
+Ensure the server has the correct configuration /etc/my.cnf
+Start the MySQL service
+delete anonymous MySQL users
+remove the MySQL test database
+Mysql | Check if the root password has been already set
+Mysql | Generate a new root password
+update mysql root password for all root accounts
+copy .my.cnf file with root password credentials
+ensure that the latest IcePAPCMS package is installed
+ensure icepapcms db exists
+ensure that db user icepapcms is configured
+update conflict tables to fix MaxIV name issues.
 Gathering Facts
-icepap/client : ensure that the latest IcePAPCMS package is installed
-icepap/client : ensure that the python-storm-mysql package is installed
-icepap/client : ensure that the config file path exists
-icepap/client : copy the standard icepapcms.conf to /etc/icepapcms
+ensure that the latest IcePAPCMS package is installed
+ensure that the python-storm-mysql package is installed
+ensure that the config file path exists
+copy the standard icepapcms.conf to /etc/icepapcms
 Gathering Facts
-web/elog : Ensure the dependencies of the Elog are install
+Ensure the dependencies of the Elog are install
+delete project directory before update
+check repo using git
+update project using git
+Set the git repository version
+update project using hg
+Set the hg repository version
+parse hg version string properly
+update project using svn
+Set the svn repository version
+parse subversion version string properly
+Ensure the project directory is present
+Fetch Insights Playbook(s)
+Save Insights Version
+Repository Version
+Write Repository Version
+detect requirements.yml
+fetch galaxy roles from requirements.yml
+fetch galaxy roles from requirements.yml (forced update)
+Gathering Facts
+include
+ensure CentOS-Base Repository is configured for the MAXIV domain
+ensure EPEL Repository is configured for the MAXIV domain
+configure el repo
+copy EL rpm-gpg repo key
+setup config for IT Services local repo
+configure nux-dextop repo
+configure elastic repo
+Disable the PXE repo
+ensure the Public Tango Yum repo is installed
+debug
+ensure the Max IV Yum repo is installed
+ensure the Max IV pypi repo is configured
+ensure the swfactory Yum repo is removed
+ensure the old MaxLab Yum repo is removed
+ensure the old Maxlab configuration is absent
+ensure the epel package are present
+configure Galil repos
+persist the hostname
+set_fact
+debug
+Remove any obsolete ntp related package if exists
+ensure the ntp packages are present
+ensure ntpdate is enabled
+Ntpdate has the correct ntp server
+ensure NTP point out to the correct ntp server
+Configure Chrony
+msg="trig ntpdate"
+Disable firewall on CENTOS 6
+Disable firewall on CENTOS 7
+Make sure all local groups exist
+Make sure the user exists
+Add the User to the Authorized Key
+install postfix
+Configure smtp relay server to enable email sending
+Install the Desktop packages for CentOS6
+Install the Desktop packages for CentOS7
+Install the Mate Desktop packages
+Install the Desktop Extension packages for CentOS6
+Install the Desktop Extension packages for CentOS7
+Remove extra unuseful packages for CentOS7
+Set the keyboard layout user space
+Set the keyboard layout X11 login screen
+Make sure the OS start with the desktop for CentOS6
+Set flag to make sure the OS start with the desktop for CentOS7
+Make sure the OS start with the desktop for CentOS7
+Install the x2go server
+Install the Mate Desktop packages
+install thinlinc client
+configure for maxiv cluster
+blacklist nouveau driver
+debug
+debug
+debug
+install the nvidia driver
+disable nouveau driver from grub
+disable nouveau driver from grub
+Make sure the gmd global configuration directory exists
+set up network interface eth1
+set up network gateway for eth1
+set up network interface ens224
+set up network gateway for ens224
+set up network interface ens192
+debug
+set up network interfaces
+set up network gateway for route
+Disable firewall on CENTOS 6
+Disable firewall on CENTOS 7
+Disable firewall on CENTOS 6
+Disable firewall on CENTOS 7
+Disable firewall on CENTOS 6
+Disable firewall on CENTOS 7
+debug
+Install the Oracle Java Runtime Environment
+Check if the correct java version is installeA
+Download the Oracle Java RPM
+Install the Oracle Java Runtime Environment
+Use Oracle Java
+Install the Oracle Java Runtime Environment
+Use Oracle Java
+include_vars
+Install Open VM Tools
+Run the VM Tools service
+include
+fail
+debug
+Make sure sssd is not installed (if previously connected to LDAP server)
+Increase the range of User ID number
+Install AD connection packages
+Install local update of nslcd that supports nested groups
+ensure the AD configuration with TLS
+Setup nslcd.conf
+Setup authconfig by file
+Force Authconfig
+Setup authconfig by command (Becareful that the command and the template are coherent)
+Setup /etc/pam_ldap.conf, RFC 2307 (AD) mappings  (Non idempotent, always overwritten by authconfig)
+Setup nslcd.conf
+test if the user comes from the central directory
+ensure KITS group has sudo privileges
+ensure node exporter service is stopped
+Clean up old node_exporter settings
+remove old maxiv node_exporter systemd package
+Remove node_exporter (by default anywhere)
+remove node_exporter from supervisor
+Check if node_exporter binary exists
+set respected node_exporter binary sha256
+set fact True if correct node_exporter binary exists
+create node_exporter directories
+Download node_exporter binary to local folder
+Unpack node_exporter binary
+Propagate node_exporter binaries
+append systemd collector to the command line
+create systemd service unit
+debug
+Looking which version of upstart is install
+create init service unit
+create sysvinit service unit
+ensure node exporter service is enabled and started
+ensure apt cache is updated
+ensure yum cache is updated
+ensure the CLS packages are present
+Ensure rpcbind is running
+ensure the NFSv4 domain is correct
+ensure the NFS dir is mounted
+the NFS directories have an hard link
+Ensure the old packages are uninstalled for this host
+Ensure the packages are correctly installed for this host
+Ensure testing packages are correctly installed for this host
+debug
+add system proxy
+debug
+insert shell proxy(http)
+check if git is installed
+add git proxy
+Configure git
+git_config
+git_config
+check if docker is installed
+add docker proxy
+Make sure the daemon directory exists
+Enable docker daemon environment file
+ensure the local admin group has sudo privileges to install packages and can start/kill as tango service user
+Change root SSH access
+export default [
+Reticulating splines...
+Generating witty dialog...
+Swapping time and space...
+Spinning violently around the y-axis...
+Tokenizing real life...
+Bending the spoon...
+Filtering morale...
+Don't think of purple hippos...
+We need a new fuse...
+Have a good day.
+Upgrading Windows, your PC will restart several times. Sit back and relax.
+640K ought to be enough for anybody
+The architects are still drafting
+The bits are breeding
+We're building the buildings as fast as we can
+Would you prefer chicken, steak, or tofu?
+Pay no attention to the man behind the curtain
+Enjoying the elevator music
+Please wait while the little elves draw your map
+Don't worry - a few bits tried to escape, but we caught them
+Would you like fries with that?
+Checking the gravitational constant in your locale...
+Go ahead -- hold your breath!
+...at least you're not on hold...
+Hum something loud while others stare
+You're not in Kansas any more
+The server is powered by a lemon and two electrodes.
+Please wait while a larger software vendor in Seattle takes over the world
+We're testing your patience
+As if you had any other choice
+Follow the white rabbit
+Why don't you order a sandwich?
+While the satellite moves into position
+keep calm and npm install
+The bits are flowing slowly today
+Dig on the 'X' for buried treasure... ARRR!
+It's still faster than you could draw it
+The last time I tried this the monkey didn't survive. Let's hope it works better this time.
+I should have had a V8 this morning.
+My other loading screen is much faster.
+Testing on Timmy... We're going to need another Timmy.
+Reconfoobling energymotron...
+(Insert quarter)
+Are we there yet?
+Have you lost weight?
+Just count to 10
+Why so serious?
+It's not you. It's me.
+Counting backwards from Infinity
+Don't panic...
+Embiggening Prototypes
+Do not run! We are your friends!
+Do you come here often?
+Warning: Don't set yourself on fire.
+We're making you a cookie.
+Creating time-loop inversion field
+Spinning the wheel of fortune...
+Loading the enchanted bunny...
+Computing chance of success
+I'm sorry Dave, I can't do that.
+Looking for exact change
+All your web browser are belong to us
+All I really need is a kilobit.
+I feel like im supposed to be loading something. . .
+What do you call 8 Hobbits? A Hobbyte.
+Should have used a compiled language...
+Is this Windows?
+Adjusting flux capacitor...
+Please wait until the sloth starts moving.
+Don't break your screen yet!
+I swear it's almost done.
+Let's take a mindfulness minute...
+Unicorns are at the end of this road, I promise.
+Listening for the sound of one hand clapping...
+Keeping all the 1's and removing all the 0's...
+Putting the icing on the cake. The cake is not a lie...
+Cleaning off the cobwebs...
+Making sure all the i's have dots...
+We are not liable for any broken screens as a result of waiting.
+We need more dilithium crystals
+Where did all the internets go
+Connecting Neurotoxin Storage Tank...
+Granting wishes...
+Time flies when you’re having fun.
+Get some coffee and come back in ten minutes..
+Spinning the hamster…
+99 bottles of beer on the wall..
+Stay awhile and listen..
+Be careful not to step in the git-gui
+You edhall not pass! yet..
+Load it and they will come
+Convincing AI not to turn evil..
+There is no spoon. Because we are not done loading it
+Your left thumb points to the right and your right thumb points to the left.
+How did you get here?
+Wait, do you smell something burning?
+Computing the secret to life, the universe, and everything.
+When nothing is going right, go left!!...
+I love my job only when I'm on vacation...
+i'm not lazy, I'm just relaxed!!
+Never steal. The government hates competition....
+Why are they called apartments if they are all stuck together?
+Life is Short – Talk Fast!!!!
+Optimism – is a lack of information.....
+Save water and shower together
+Whenever I find the key to success, someone changes the lock.
+Sometimes I think war is God’s way of teaching us geography.
+I’ve got problem for your solution…..
+Where there’s a will, there’s a relative.
+User: the word computer professionals use when they mean !!idiot!!
+Adults are just kids with money.
+I think I am, therefore, I am. I think.
+A kiss is like a fight, with mouths.
+You don’t pay taxes—they take taxes.
+Coffee, Chocolate, Men. The richer the better!
+I am free of all prejudices. I hate everyone equally.
+git happens
+May the forks be with you
+A commit a day keeps the mobs away
+This is not a joke, it's a commit.
+Constructing additional pylons...
+Roping some seaturtles...
+Locating Jebediah Kerman...
+We are not liable for any broken screens as a result of waiting.
+Hello IT, have you tried turning it off and on again?
+If you type Google into Google you can break the internet
+Well, this is embarrassing.
+What is the airspeed velocity of an unladen swallow?
+Hello, IT... Have you tried forcing an unexpected reboot?
+They just toss us away like yesterday's jam.
+They're fairly regular, the beatings, yes. I'd say we're on a bi-weekly beating.
+The Elders of the Internet would never stand for it.
+Space is invisible mind dust, and stars are but wishes.
+Didn't know paint dried so quickly.
+Everything sounds the same
+I'm going to walk the dog
+I didn't choose the engineering life. The engineering life chose me.
+Dividing by zero...
+Spawn more Overlord!
+If I’m not back in five minutes, just wait longer.
+Some days, you just can’t get rid of a bug!
+We’re going to need a bigger boat.
+Chuck Norris never git push. The repo pulls before.
+Web developers do it with <style>
+I need to git pull --my-life-together
+Java developers never RIP. They just get Garbage Collected.
+Cracking military-grade encryption...
+Simulating traveling salesman...
+Proving P=NP...
+Entangling superstrings...
+Twiddling thumbs...
+Searching for plot device...
+Trying to sort in O(n)...
+Laughing at your pictures-i mean, loading...
+Sending data to NS-i mean, our servers.
+Looking for sense of humour, please hold on.
+Please wait while the intern refills his coffee.
+A different error message? Finally, some progress!
+Hold on while we wrap up our git together...sorry
+Please hold on as we reheat our coffee
+Kindly hold on as we convert this bug to a feature...
+Kindly hold on as our intern quits vim...
+Winter is coming...
+Installing dependencies
+Switching to the latest JS framework...
+Distracted by cat gifs
+Finding someone to hold my beer
+BRB, working on my side project
+@todo Insert witty loading message
+Let's hope it's worth the wait
+Aw, snap! Not..
+Ordering 1s and 0s...
+Updating dependencies...
+Whatever you do, don't look behind you...
+Please wait... Consulting the manual...
+It is dark. You're likely to be eaten by a grue.
+Loading funny message...
+It's 10:00pm. Do you know where your children are?
+Waiting Daenerys say all her titles...
+Feel free to spin in your chair
+What the what?
+format C: ...
+Forget you saw that password I just typed into the IM ...
+What's under there?
+Your computer has a virus, its name is Windows!
+Go ahead, hold your breath and do an ironman plank till loading complete
+Bored of slow loading spinner, buy more RAM!
+Help, I'm trapped in a loader!
+What is the difference btwn a hippo and a zippo? One is really heavy, the other is a little lighter
+Please wait, while we purge the Decepticons for you. Yes, You can thanks us later
+Chuck Norris once urinated in a semi truck's gas tank as a joke....that truck is now known as Optimus Prime
+Chuck Norris doesn’t wear a watch. HE decides what time it is
+Mining some bitcoins..
+Downloading more RAM.
+Updating to Windows Vista..
+Deleting System32 folde
+Hiding all ;'s in your cod
+Alt-F4 speeds things up
+Initializing the initializer..
+When was the last time you dusted around here
+Optimizing the optimizer..
+Last call for the data bus! All aboard
+Running swag sticker detection..
+When nothing is going right, go left
+Never let a computer know you're in a hurry
+A computer will do what you tell it to do, but that may be much different from what you had in mind
+Some things man was never meant to know. For everything else, there's Google
+Unix is user-friendly. It's just very selective about who its friends are
+Shovelling coal into the serve
+Pushing pixels..
+How about this weather, eh
+Building a wall..
+Everything in this universe is either a potato or not a potat
+The severity of your issue is always lower than you expected
+Updating Updater..
+Downloading Downloader..
+Debugging Debugger..
+Reading Terms and Conditions for you
+Digested cookies being baked again
+Live long and prosper
+There is no cow level, but there's a goat one
+Deleting all your hidden porn..
+Running with scissors..
+Definitely not a virus..
+You may call me Steve
+You seem like a nice person..
+Coffee at my place, tommorow at 10A.M. - don't be late
+Work, work..
+Patience! This is difficult, you know..
+Discovering new ways of making you wait..
+Your time is very important to us. Please wait while we ignore you..
+Time flies like an arrow; fruit flies like a banan
+Two men walked into a bar; the third ducked..
+Sooooo... Have you seen my vacation photos yet
+Sorry we are busy catching em' all, we're done soo
+TODO: Insert elevator musi
+Still faster than Windows updat
+Composer hack: Waiting for reqs to be fetched is less frustrating if you add -vvv to your command
+......... Oh shit, you were waiting for me to do something? Oh okay, well then.
+Not panicking...totally not panicking...er...everything's fine...
+Following the white rabbit....
+"Going the distance..."
+The Elders of the Internet are contemplating your request...
+PC Load Letter!? What the $#%& does that mean?
+All your base are belong to us
+Baking cake...er...I mean loading, yeah loading...
+I'll be with you in a bit...(snicker)
+Let this abomination unto the Lord begin
+Making stuff up. Please wait...
+Searching for the... OMG, what the heck is THAT doing there?
+Loading the Loading message....
+The internet is full... Please wait...
+Checking prime directives: Serve the public trust...Protect the innocent...Uphold the law...Classified....
+Slackbot is groggy. installing java
+Initializing Skynet library. gaining sentience....
+I'm quite drunk, loading might take a little more time than the usual! Please be patient....
+Commencing infinite loop (this may take some time)....
+Caching internet locally....
+Water detected on drive C:, please wait. Spin dry commencing
+Yes there really are magic elves with an abacus working frantically in here
+Load failed. retrying with --prayer....
+Performing the rite of percussive maintenance....
+Sacrificing a resistor to the machine gods....
+Adding Randomly Mispeled Words Into Text
+Adding Vanilla Flavor to Ice Giants
+All races of Norrath will learn to work together
+Always Frisky Kerrans
+Attaching Beards to Dwarves
+Bristlebane Was Here
+Buy:LurN Tu Tok liK Da OgUr iN Ayt DaYz by OG
+Checking Anti-Camp Radius
+Creating Randomly Generated Feature
+Delivering the Lion Meat to Halas
+DING!
+Does Anyone Actually Read This?
+Doing Something You Don't Wanna Know About
+Doing The Impossible
+Don't Panic
+Dusting Off Spellbooks
+Ensuring Everything Works Perfektly
+Ensuring Gnomes Are Still Short
+Filling Halflings With Pie
+Generating Plans for Faster-Than-Light Travel
+Grrr. Bark. Bark. Grrr.
+Have You Hugged An Iksar Today?
+Have You Tried Batwing Crunchies Cereal?
+Hiding Catnip From Vah Shir
+Hitting Your Keyboard Won't Make This Faster
+Honk if You Eat Gnomes
+If You Squeeze Dark Elves You Don't Get Wine
+In The Grey, No One Can Hear You Scream
+Isn't It About Time You Washed Your Armor?
+Karnor's... Over 41 Billion Trains Served
+Loading, Don't Wait If You Don't Want To
+Look Out Behind You
+Looking For Graphics
+Looking Up Barbarian Kilts
+Now Spawning Fippy_Darkpaw_432,366,578
+Oiling Clockworks
+Outfitting Pigs With Wings
+Pizza...The Other Other White Meat
+Polishing Erudite Foreheads
+Preparing to Spin You Around Rapidly
+Refreshing Death Touch Ammunition
+Ruining My Own Lands
+Sanding Wood Elves... now 34% smoother.
+Sharpening Claws
+Sharpening Swords
+Spawning Your_Characters01
+Starching High Elf Robes
+Stringing Bows
+Stupidificationing Ogres
+Teaching Snakes to Kick
+Told You It Wasn't Made of Cheese
+Warning: Half Elves Are Now .49999 Elves.
+Whacking Trolls With Ugly Stick
