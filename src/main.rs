@@ -65,6 +65,7 @@ static EX_NAMES: &str = include_str!("../data/expchanel.txt");
 static EXCEPTIONS: &str = include_str!("../data/exceptions.txt");
 static HOSTS: &str = include_str!("../data/hosts.txt");
 static ANSIBLETASKS: &str = include_str!("../data/ansibletasks.txt");
+static ANSIBLEPLAYS: &str = include_str!("../data/ansibleplays.txt");
 
 lazy_static! {
     static ref BOOTLOG_LIST: Vec<&'static str> = BOOTLOG.lines().collect();
@@ -82,6 +83,7 @@ lazy_static! {
     static ref DOCKER_TAGS_LIST: Vec<&'static str> = DOCKER_TAGS.lines().collect();
     static ref HOSTS_LIST: Vec<&'static str> = HOSTS.lines().collect();
     static ref ANSIBLETASKS_LIST: Vec<&'static str> = ANSIBLETASKS.lines().collect();
+    static ref ANSIBLEPLAYS_LIST: Vec<&'static str> = ANSIBLEPLAYS.lines().collect();
 }
 
 static EXTENSIONS_LIST: &'static [&str] = &[
