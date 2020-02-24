@@ -24,10 +24,8 @@ fn failed(host: &str) {
 
 fn task(task: &str) {
     let msg = format!("TASK [{}] ", task);
-    let mut stars = "********************************************************************************************";
-    stars = &stars[msg.len()..];
-    print!("{}", msg);
-    println!("{}", stars);
+    let msgline = format!("{:*<92}", msg);
+    println!("{}", msgline);
 }
 
 fn recap(nbrtasks: usize) {
