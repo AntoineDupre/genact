@@ -573,3 +573,17 @@ Teaching Snakes to Kick
 Told You It Wasn't Made of Cheese
 Warning: Half Elves Are Now .49999 Elves.
 Whacking Trolls With Ugly Stick
+Overloading plasma gun
+Firing laser
+Shutting down reactor
+Overriding reactor safety interlocks
+Charging plasma gun
+Dumping warp core
+Bending linac
+Straightening linac
+Dropping out of lightspeed
+Jumping to hyperspace
+Removing all staff accounts
+Changing root password to 'qwerty'
+
+

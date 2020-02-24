@@ -63,4 +63,6 @@ rust/icepap
 c++/deprecated
 Corba/sucks
 Genact/genius
-
+A:\
+C:\games
+AUTOEXEC.BAT
