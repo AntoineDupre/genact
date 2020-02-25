@@ -36,6 +36,7 @@ mod composer;
 mod cryptomining;
 mod docker;
 mod download;
+mod genact;
 mod kernel_compile;
 mod memdump;
 mod mkinitcpio;
@@ -66,6 +67,7 @@ static EXCEPTIONS: &str = include_str!("../data/exceptions.txt");
 static HOSTS: &str = include_str!("../data/hosts.txt");
 static ANSIBLETASKS: &str = include_str!("../data/ansibletasks.txt");
 static ANSIBLEPLAYS: &str = include_str!("../data/ansibleplays.txt");
+static GENACT: &str = include_str!("./cargo.rs");
 
 lazy_static! {
     static ref BOOTLOG_LIST: Vec<&'static str> = BOOTLOG.lines().collect();
@@ -84,6 +86,7 @@ lazy_static! {
     static ref HOSTS_LIST: Vec<&'static str> = HOSTS.lines().collect();
     static ref ANSIBLETASKS_LIST: Vec<&'static str> = ANSIBLETASKS.lines().collect();
     static ref ANSIBLEPLAYS_LIST: Vec<&'static str> = ANSIBLEPLAYS.lines().collect();
+    static ref GENACT_LIST: Vec<&'static str> = GENACT.lines().collect();
 }
 
 static EXTENSIONS_LIST: &'static [&str] = &[
@@ -121,6 +124,7 @@ fn main() {
         "weblog",
         "spock",
         "ansible",
+        "genact",
         // "bruteforce",
         // "initialize",
         // "heartbeat",
@@ -170,6 +174,7 @@ fn main() {
             "weblog" => weblog::run(&appconfig),
             "spock" => spock::run(&appconfig),
             "ansible" => ansible::run(&appconfig),
+            "genact" => genact::run(&appconfig),
             _ => panic!("Unknown module!"),
         }
         #[cfg(not(target_os = "emscripten"))]
