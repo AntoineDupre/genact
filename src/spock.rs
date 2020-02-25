@@ -49,6 +49,9 @@ pub fn run(appconfig: &AppConfig) {
     let mut scan_id: i32 = rng.gen_range(100, 300);
     for _ in 0..30 {
         oneloop(appconfig, ipython_number, scan_id);
+        if appconfig.should_exit() {
+            return;
+        }
         ipython_number += 1;
         scan_id += 1;
         csleep(1000);
