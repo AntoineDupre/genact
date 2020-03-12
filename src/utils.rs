@@ -1,3 +1,4 @@
+use crate::parse_args::AppConfig;
 use rand::distributions::Uniform;
 /// Module containing random utilities.
 use rand::prelude::*;
@@ -60,7 +61,7 @@ pub fn dprint<S: Into<String>>(s: S, delay: u64) {
 }
 
 /// Print `s` with each letter delayed by `delay` milliseconds.
-pub fn rdprint<S: Into<String>>(s: S, delay: u64) {
+pub fn rdprint<S: Into<String>>(s: S, delay: u64, appconfig: &AppConfig) {
     // Construct a `Vec` of single characters converted to `String`s.
     let mut rng = thread_rng();
     let string_arr = s
@@ -83,6 +84,9 @@ pub fn rdprint<S: Into<String>>(s: S, delay: u64) {
             stdout().flush().unwrap();
         }
 
+        if appconfig.should_exit() {
+            return;
+        }
         if delay > 0 {
             let mut extra = rng.gen_range(10, 100);
             if c == " " || c == "{" || c == "}" || c == "[" || c == "]" || c == "\r" {

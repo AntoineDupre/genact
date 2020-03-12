@@ -20,10 +20,14 @@ pub fn run(appconfig: &AppConfig) {
     const SPINNER_SLEEP: u64 = 200;
     const TEXT_SLEEP: u64 = 15;
     const MAX_SPINNER_LOOPS: u8 = 20;
-
+    // clear terminal
+    print!("\x1B[2J");
     let mut rng = thread_rng();
-    let mut simcity = "";
+    let mut simcity = "\n";
+    let ranges: Vec<(Style, &str)> = h.highlight(simcity, &ps);
+    let escaped = as_24_bit_terminal_escaped(&ranges[..], true);
 
+    dprint(escaped.to_string(), 0);
     // for _ in 0..500 {
     GENACT_LIST.iter().for_each(|simcity| {
         let spinner_loops = rng.gen_range(1, MAX_SPINNER_LOOPS);
@@ -64,7 +68,12 @@ pub fn run(appconfig: &AppConfig) {
                 // on first print, text appears letter by letter
                 //if first {
                 dprint(unchecked_checkbox, 0);
-                rdprint(msg, TEXT_SLEEP);
+                rdprint(msg, TEXT_SLEEP, appconfig);
+                if appconfig.should_exit() {
+                    println!();
+                    return;
+                }
+
                 first = false;
                 //} else {
                 //    dprint(unchecked_checkbox, 0);
@@ -76,8 +85,8 @@ pub fn run(appconfig: &AppConfig) {
 
                 // Don't wait until finished, exit both loops if that is requested
                 if appconfig.should_exit() {
-                    resolution = "ABORTED";
-                    break 'outer;
+                    println!();
+                    return;
                 }
             }
         }
@@ -99,7 +108,6 @@ pub fn run(appconfig: &AppConfig) {
         dprint(escaped.to_string(), 0);
 
         if appconfig.should_exit() {
-            dprint("\nALL DONE\n", 0);
             return;
         }
 
