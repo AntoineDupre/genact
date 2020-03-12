@@ -18,30 +18,30 @@ fn get_one_entry<'a>(source: Vec<&'static str>, default: &'a str) -> &'a str {
     value
 }
 
-fn scan_input(
-    ipython_number: i32,
-    scan_type: &str,
-    motor_name: &str,
-    start: i32,
-    end: i32,
-    step: i32,
-    ct: i32,
-) {
-    println!(
-        "{ipython}: {scan_type} {motor_name} {motstart} {motend} {step} {ct}",
-        ipython = Paint::green(format!(
-            "[{ipython_number}]",
-            ipython_number = ipython_number,
-        ))
-        .bold(),
-        motor_name = motor_name,
-        scan_type = scan_type,
-        motstart = start,
-        motend = end,
-        step = step,
-        ct = ct,
-    );
-}
+//fn scan_input(
+//    ipython_number: i32,
+//    scan_type: &str,
+//    motor_name: &str,
+//    start: i32,
+//    end: i32,
+//    step: i32,
+//    ct: i32,
+//) {
+//    println!(
+//        "{ipython}: {scan_type} {motor_name} {motstart} {motend} {step} {ct}",
+//        ipython = Paint::green(format!(
+//            "[{ipython_number}]",
+//            ipython_number = ipython_number,
+//        ))
+//        .bold(),
+//        motor_name = motor_name,
+//        scan_type = scan_type,
+//        motstart = start,
+//        motend = end,
+//        step = step,
+//        ct = ct,
+//    );
+//}
 
 pub fn run(appconfig: &AppConfig) {
     let mut rng = thread_rng();
@@ -71,7 +71,7 @@ fn oneloop(appconfig: &AppConfig, ipython_number: i32, scan_id: i32) {
     let scan_type = get_one_entry(["fscan", "ascan", "mesh"].to_vec(), &"ascan");
     let mut exp_chan = Vec::new();
     let mut exp_chan_ranges = Vec::new();
-    for n in 0..nbr_chan {
+    for _ in 0..nbr_chan {
         let ct = get_one_entry(EX_LIST.to_vec(), &"em01_ch01");
         exp_chan.push(ct.clone());
         exp_chan_ranges.push(rng.gen_range(50, 5000));
@@ -126,7 +126,7 @@ fn oneloop(appconfig: &AppConfig, ipython_number: i32, scan_id: i32) {
             let nbr = rng.gen_range(1, r) as f64;
             pulses.push(nbr);
         }
-        let mut pulse: f64 = rng.gen_range(1, 40) as f64;
+        let pulse: f64 = rng.gen_range(1, 40) as f64;
         print!(
             " {count:^15} {n:^15} {ct:^15}",
             count = count,
