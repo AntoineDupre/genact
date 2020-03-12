@@ -1,11 +1,21 @@
 use crate::parse_args::AppConfig;
-use crate::utils::{csleep, dprint};
+use crate::syntect;
+use crate::utils::{csleep, dprint, rdprint};
+use crate::GENACT_LIST;
 use rand::prelude::*;
 use yansi::Paint;
 
-use crate::GENACT_LIST;
+use syntect::easy::HighlightLines;
+use syntect::highlighting::{Style, ThemeSet};
+use syntect::parsing::SyntaxSet;
+use syntect::util::{as_24_bit_terminal_escaped, LinesWithEndings};
 
 pub fn run(appconfig: &AppConfig) {
+    // Load these once at the start of your program
+    let ps = SyntaxSet::load_defaults_newlines();
+    let ts = ThemeSet::load_defaults();
+    let syntax = ps.find_syntax_by_extension("rs").unwrap();
+    let mut h = HighlightLines::new(syntax, &ts.themes["base16-ocean.dark"]);
     const SPINNERS: &[&str] = &[""];
     const SPINNER_SLEEP: u64 = 200;
     const TEXT_SLEEP: u64 = 15;
@@ -54,7 +64,7 @@ pub fn run(appconfig: &AppConfig) {
                 // on first print, text appears letter by letter
                 //if first {
                 dprint(unchecked_checkbox, 0);
-                dprint(msg, TEXT_SLEEP);
+                rdprint(msg, TEXT_SLEEP);
                 first = false;
                 //} else {
                 //    dprint(unchecked_checkbox, 0);
@@ -72,18 +82,21 @@ pub fn run(appconfig: &AppConfig) {
             }
         }
 
-        // Select the color
-        let color_func = if resolution == "FAIL" || resolution == "ABORTED" {
-            // Use red for FAIL
-            Paint::white
-        } else {
-            // Use white most of the time
-            Paint::white
-        };
+        //// Select the color
+        //let color_func = if resolution == "FAIL" || resolution == "ABORTED" {
+        //    // Use red for FAIL
+        //    Paint::white
+        //} else {
+        //    // Use white most of the time
+        //    Paint::white
+        //};
 
         // End of loop, the line has been removed, conclude the status
         dprint(checked_checkbox, 10);
-        dprint(color_func(format!("{}", simcity)).to_string(), 0);
+        let ranges: Vec<(Style, &str)> = h.highlight(simcity, &ps);
+        let escaped = as_24_bit_terminal_escaped(&ranges[..], true);
+        // dprint(color_func(format!("{}", simcity)).to_string(), 0);
+        dprint(escaped.to_string(), 0);
 
         if appconfig.should_exit() {
             dprint("\nALL DONE\n", 0);

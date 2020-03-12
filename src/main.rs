@@ -22,6 +22,7 @@ extern crate lazy_static;
 extern crate pbr;
 extern crate rand;
 extern crate regex;
+extern crate syntect;
 extern crate url;
 extern crate yansi;
 #[macro_use]
